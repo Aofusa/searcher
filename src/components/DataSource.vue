@@ -1,5 +1,6 @@
 <template>
   <div class="datasource">
+      <p>datasource</p>
       <div class="search"></div>
       <div class="querycheck"></div>
       <div class="datasource-canvas"></div>

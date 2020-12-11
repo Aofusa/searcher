@@ -1,19 +1,15 @@
 <template>
-  <div id="switcher">
-    <p>switcher</p>
-    <Generator />
-    <button class="btn btn-primary" @click="$router.push('datasource')">Data<br>Source</button>
-    <button class="btn btn-primary" @click="$router.push('viz')">Viz</button>
+  <div id="generator">
+    <p>Generator</p>
+    <button class="btn btn-primary">Add<br>Data<br>Source</button>
+    <button class="btn btn-primary">Add<br>Viz</button>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Switcher',
-  props: {
-    msg: String
-  }
+  name: 'Generator',
 }
 </script>
 

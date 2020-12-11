@@ -1,5 +1,6 @@
 <template>
   <div class="viz">
+      <p>viz</p>
       <div class="data">
         <div class="column"></div>
         <div class="view"></div>

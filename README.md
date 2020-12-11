@@ -56,4 +56,5 @@ TODO
 - [x] 検索
 - [x] SQLiteで検索クエリの保存
 - [ ] クエリのビジュアライズ
+- [ ] VizとDataSourceの追加
 
