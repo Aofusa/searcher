@@ -1,0 +1,130 @@
+openapi: 3.0.3
+
+info:
+  title: Seacher API
+  description: save SQL, search results and visualize
+  version: 0.1.0
+
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Development server
+
+paths:
+  /api/v1/query/execute:
+    post:
+      summary: Execute query to primary db
+      description: execute query to target db. Config with host environment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                placeholder:
+                  type: string
+      responses:
+        '200':
+          description: A JSON object of query results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  result:
+                    type: array
+                    items:
+                      type: object
+
+  /api/v1/query/save:
+    post:
+      summary: save query statement
+      description: save query statement. if already save same name, this method will fail.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                name:
+                  type: string
+      responses:
+        '200':
+          description: success or fail save.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+
+  /api/v1/query/load:
+    post:
+      summary: load query statement
+      description: load query statement.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: load query statement.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  result:
+                    type: string
+
+  /api/v1/query/search:
+    post:
+      summary: search queries
+      description: search query names. its fuzzy search.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: search query statement.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /api/v1/query/list:
+    get:
+      summary: list queries
+      description: list query names.
+      responses:
+        '200':
+          description: list query names.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
