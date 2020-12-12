@@ -1,8 +1,8 @@
 <template>
   <div id="generator">
     <p>Generator</p>
-    <button class="btn btn-primary">Add<br>Data<br>Source</button>
-    <button class="btn btn-primary">Add<br>Viz</button>
+    <button class="btn btn-primary" @click="$emit('add-datasource')">Add<br>Data<br>Source</button>
+    <button class="btn btn-primary" @click="$emit('add-viz')">Add<br>Viz</button>
   </div>
 </template>
 

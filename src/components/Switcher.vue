@@ -1,9 +1,14 @@
 <template>
   <div id="switcher">
     <p>switcher</p>
-    <Generator />
-    <button class="btn btn-primary" @click="$router.push('datasource')">Data<br>Source</button>
-    <button class="btn btn-primary" @click="$router.push('viz')">Viz</button>
+    <ul>
+      <li v-for="item in datasources" :key="item">
+        <button class="btn btn-primary" @click="$router.push('datasource')">Data<br>Source</button>
+      </li>
+      <li v-for="item in vizs" :key="item">
+        <button class="btn btn-primary" @click="$router.push('viz')">Viz</button>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -12,7 +17,8 @@
 export default {
   name: 'Switcher',
   props: {
-    msg: String
+    datasources: Array,
+    vizs: Array
   }
 }
 </script>
